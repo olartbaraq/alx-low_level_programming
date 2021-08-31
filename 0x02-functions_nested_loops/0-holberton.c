@@ -1,9 +1,8 @@
-#include "main.h"
-
+#include "mainn.h"
 /**
- * main - program that prints Holberton.
+ * main - Entry point
  *
- * Return: int
+ * Return: Always 0 (Success)
  */
 
 int main(void)
@@ -17,5 +16,6 @@ int main(void)
 		n += 1;
 	}
 	_putchar('\n');
+
 	return (0);
 }
