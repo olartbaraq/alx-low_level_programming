@@ -5,14 +5,15 @@
  * All your code should be in the main function
  * Return: 0
  */
- 
+
 int main(void)
 {
-int i ;
-for(i=0 ; i<10 ; ++i) 
+int n;
+while (n < 10)
 {
-printf("%d", i);
+printf("%d", n);
+n += 1;
 }
-putchar('\n');
-return 0;    
+printf("\n");
+return (0);
 }
