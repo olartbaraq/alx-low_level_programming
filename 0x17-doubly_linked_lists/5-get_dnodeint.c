@@ -13,12 +13,12 @@ unsigned int i = 0;
 dlistint_t *temp;
 if (!head)
 return (NULL);
- if (!index)
-   return NULL;
- else
+if (!index)
+return (NULL);
+else
 {
-temp = head;     
-while ( temp != NULL && i < index)
+temp = head;
+while (temp != NULL && i < index)
 {
 temp = temp->next;
 i++;
