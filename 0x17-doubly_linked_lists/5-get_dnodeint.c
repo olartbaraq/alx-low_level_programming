@@ -16,10 +16,10 @@ if (!head)
 return (NULL);
 if (!index)
 return NULL;
-while ( i < index)
+while ( head && i < index)
 {
 temp = temp->next;
 i++;
 }
-return (temp);
+return (temp ? temp : NULL);
 }
