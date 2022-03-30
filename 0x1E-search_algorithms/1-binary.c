@@ -1,48 +1,40 @@
 #include "search_algos.h"
-#include <stdlib.h>
-#include <stdio.h>
-
-
 /**
- * print_subarray - subroutine to print out the elements of an array
- * @array: array to print
- * @size: length of array
- */
-
-void print_subarray(int *array, size_t size)
-{
-printf("Searching in array: %d", *array++);
-while (--size)
-printf(", %d", *array++);
-printf("\n");
-}
-
-
-/**
- * binary_search - a comparison search of duos on a sorted array of integers
- * @array: array to search data from
- * @size: length of array
- * @value: value to search for
+ * binary_search - a function that searches for a value in an array
+ * @size: is the number of elements in array
+ * @value: the value to be searched for
+ * @array: is a pointer to the first element of the array to search in
  *
- * Return: index of element equal to `value`, -1 if absent or array is NULL
- * or empty.
- *
+ * Return: Index where found; -1 if not found or array is null.
  */
 
 int binary_search(int *array, size_t size, int value)
 {
-int r;
-size_t mid = (size - 1) / 2;
+int index = 0;
+int start = 0, end = size - 1;
+int m = (start + end) / 2;
 
-if (array == NULL || size == 0)
+if (array == NULL)
 return (-1);
-print_subarray(array, size);
-if (value == array[mid])
-return (mid);
-if (value < array[mid])
-return (binary_search(array, mid + 1, value));
-r = binary_search(array + mid + 1, size - mid - 1, value);
-if (r == -1)
+while (start <= end)
+{
+index = start;
+printf("Searching in array: ");
+while (index < (end + 1))
+{
+if (index < end)
+printf("%d, ", array[index]);
+else
+printf("%d\n", array[index]);
+index++;
+}
+m = (start + end) / 2;
+if (array[m] == value)
+return (array[m]);
+else if (array[m] < value)
+start = m + 1;
+else
+end = m - 1;
+}
 return (-1);
-return (mid + 1 + r);
 }
